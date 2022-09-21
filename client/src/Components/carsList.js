@@ -27,7 +27,7 @@ export default function CarList() {
  // This method fetches the records from the database.
  useEffect(() => {
    async function getCars() {
-     const response = await fetch(`http://localhost:5000/record/`);
+     const response = await fetch(`http://localhost:5000/car/`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;

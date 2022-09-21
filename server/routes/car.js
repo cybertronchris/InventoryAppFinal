@@ -3,17 +3,17 @@ const express = require("express");
 // recordRoutes is an instance of the express router.
 // We use it to define our routes.
 // The router will be added as a middleware and will take control of requests starting with path /record.
-const allcarsRoutes = express.Router();
+const carRoutes = express.Router();
  
 // This will help us connect to the database
-const dbo = require("../db/connectionTOdatabase");
+const dbo = require("../db/conn");
  
 // This help convert the id from string to ObjectId for the _id.
 const ObjectId = require("mongodb").ObjectId;
  
  
 // This section will help you get a list of all the records.
-allcarsRoutes.route("/allcars").get(function (req, res) {
+carRoutes.route("/car").get(function (req, res) {
  let db_connect = dbo.getDb("cars");
  db_connect
    .collection("cars")
@@ -25,7 +25,7 @@ allcarsRoutes.route("/allcars").get(function (req, res) {
 });
  
 // This section will help you get a single record by id
-allcarsRoutes.route("/allcars/:id").get(function (req, res) {
+carRoutes.route("/car/:id").get(function (req, res) {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
  db_connect
@@ -37,12 +37,14 @@ allcarsRoutes.route("/allcars/:id").get(function (req, res) {
 });
  
 // This section will help you create a new record.
-allcarsRoutes.route("/allcars/add").post(function (req, response) {
+carRoutes.route("/car/add").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myobj = {
-   name: req.body.name,
-   position: req.body.position,
-   level: req.body.level,
+   model: req.body.model,
+   manufacturer: req.body.manufacturer,
+   year: req.body.year,
+   mileage: req.body.mileage,
+   listPrice: req.body.listPrice,
  };
  db_connect.collection("cars").insertOne(myobj, function (err, res) {
    if (err) throw err;
@@ -51,14 +53,16 @@ allcarsRoutes.route("/allcars/add").post(function (req, response) {
 });
  
 // This section will help you update a record by id.
-allcarsRoutes.route("/update/:id").post(function (req, response) {
+carRoutes.route("/update/:id").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
  let newvalues = {
    $set: {
-     name: req.body.name,
-     position: req.body.position,
-     level: req.body.level,
+    model: req.body.model,
+    manufacturer: req.body.manufacturer,
+    year: req.body.year,
+    mileage: req.body.mileage,
+    listPrice: req.body.listPrice,
    },
  };
  db_connect
@@ -71,7 +75,7 @@ allcarsRoutes.route("/update/:id").post(function (req, response) {
 });
  
 // This section will help you delete a record
-allcarsRoutes.route("/:id").delete((req, response) => {
+carRoutes.route("/:id").delete((req, response) => {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
  db_connect.collection("cars").deleteOne(myquery, function (err, obj) {
@@ -81,4 +85,4 @@ allcarsRoutes.route("/:id").delete((req, response) => {
  });
 });
  
-module.exports = allcarsRoutes;
+module.exports = carRoutes;
