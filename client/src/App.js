@@ -4,15 +4,15 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
  
 // We import all the components we need in our app
-import Navbar from "./components/navbar";
-import CarsList from "./components/carsList";
-import Edit from "./components/edit";
-import CreateNew from "./components/createNew";
+
+import CarsList from "./Components/carsList";
+import Edit from "./Components/edit";
+import CreateNew from "./Components/createNew";
  
 const App = () => {
  return (
    <div>
-     <Navbar />
+     
      <Routes>
        <Route exact path="/" element={<CarsList />} />
        <Route path="/edit/:id" element={<Edit />} />
