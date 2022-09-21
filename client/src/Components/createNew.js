@@ -20,13 +20,14 @@ export default function Create() {
     }
 async function onSubmit(e) {
     e.preventDefault();
-    const newCar = { ...form };
+
+    const newInventory = { ...form };
     await fetch("http://localhost:5000/record/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(newCar),
+        body: JSON.stringify(newInventory),
       })
       .catch(error => {
         window.alert(error);
@@ -44,24 +45,24 @@ async function onSubmit(e) {
                
                 <div className="form-group">
                     <label htmlFor="model">Model</label>
-                    <input type="text" className="form-control" id="name" value={form.name} onChange={(e) => updateForm({ model: e.target.value})}/>
+                    <input type="text" className="form-control" id="model" value={form.model} onChange={(e) => updateForm({ model: e.target.value})}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="manufacturer">MFR</label>
-                    <input type="text" className="form-control" id="manufacturer" value={form.name} onChange={(e) => updateForm({ manufacturer: e.target.value})}/>
+                    <input type="text" className="form-control" id="manufacturer" value={form.manufacturer} onChange={(e) => updateForm({ manufacturer: e.target.value})}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="year">Year</label>
-                    <input type="number" className="form-control" id="year" value={form.name} onChange={(e) => updateForm({ year: e.target.value})}/>
+                    <input type="number" className="form-control" id="year" value={form.year} onChange={(e) => updateForm({ year: e.target.value})}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="mileage">Mileage</label>
-                    <input type="text" className="form-control" id="mileage" value={form.name} onChange={(e) => updateForm({ mileage: e.target.value})}/>
+                    <input type="text" className="form-control" id="mileage" value={form.mileage} onChange={(e) => updateForm({ mileage: e.target.value})}/>
                 </div>
                
                 <div className="form-group">
                     <label htmlFor="listPrice">List Price</label>
-                    <input type="text" className="form-control" id="name" value={form.name} onChange={(e) => updateForm({ listPrice: e.target.value})}/>
+                    <input type="text" className="form-control" id="name" value={form.listPrice} onChange={(e) => updateForm({ listPrice: e.target.value})}/>
                 </div>
                
                 <div className="form-group">
@@ -71,6 +72,7 @@ async function onSubmit(e) {
            type="submit"
            value="Add car"
            className="btn btn-primary"
+
          />
          </div>
             </form>
