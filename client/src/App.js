@@ -1,5 +1,5 @@
 import React from "react";
- 
+import Homepage from './Components/homepage';
 // We use Route in order to define the different routes of our application
 import { Route, Routes } from "react-router-dom";
  
@@ -12,7 +12,7 @@ import CreateNew from "./Components/createNew";
 const App = () => {
  return (
    <div>
-     
+     <Homepage/>
      <Routes>
        <Route exact path="/" element={<CarsList />} />
        <Route path="/edit/:id" element={<Edit />} />
