@@ -7,18 +7,7 @@ function App() {
      
       
       <div>
-
-
-
-
-
-
-
-
-
-
-
-        
+      
   <section className="font-sans-serif text-center py-6 py-xl-9 bg-dark">
     <div className="container">
       <div className="row justify-content-center">
@@ -61,7 +50,7 @@ function App() {
   <div class="row justify-content-center text-center">
     <div class="col-lg-8 col-xl-8 py-8">
       <hr class="hr-short bg-500 mb-6 opacity-1" />
-      <p class="font-sans-serif lead text-dark">Discover all the possibilities you can create with Sparrow</p><a class="btn btn-danger mt-3" href="/Users/eugenereed/Desktop/css/public/assets/img/logo/28.png">Purchase now</a>
+      <p class="font-sans-serif lead text-dark">Discover all the possibilities you can create with one click</p><a class="btn btn-danger mt-3" href="/Users/eugenereed/Desktop/css/public/assets/img/logo/28.png">Search now</a>
     </div>
   </div>
 </div>
