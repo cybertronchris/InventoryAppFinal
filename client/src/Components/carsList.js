@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
- 
+import "bootstrap/dist/css/bootstrap.css";
+
+
 const Car = (props) => (
  <tr>
    <td>{props.car.model}</td>
@@ -69,8 +71,10 @@ export default function CarList() {
  
  // This following section will display the table with the records of individuals.
  return (
-   <div>
-     <h3>Inventory List</h3>
+   <div className="container">
+    <div className="header">
+     <h3 text-align="center">Inventory List</h3>
+     </div>
      <table className="table table-striped" style={{ marginTop: 20 }}>
        <thead>
          <tr>
