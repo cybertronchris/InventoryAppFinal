@@ -6,10 +6,10 @@ import "bootstrap/dist/css/bootstrap.css";
 const Car = (props) => (
  <tr>
    <td>{props.car.model}</td>
-   <td>{props.car.manufaturer}</td>
+   <td>{props.car.manufacturer}</td>
    <td>{props.car.year}</td>
-   <td>{props.car.Mileage}</td>
-   <td>{props.car.ListPrice}</td>
+   <td>{props.car.mileage}</td>
+   <td>{props.car.listPrice}</td>
    <td>
      <Link className="btn btn-link" to={`/edit/${props.car._id}`}>Edit</Link> |
      <button className="btn btn-link"
@@ -74,6 +74,7 @@ export default function CarList() {
    <div className="container">
     <div className="header">
      <h3 text-align="center">Inventory List</h3>
+     <Link to="/createNew">Add Car</Link>
      </div>
      <table className="table table-striped" style={{ marginTop: 20 }}>
        <thead>

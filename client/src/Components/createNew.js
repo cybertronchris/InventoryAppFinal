@@ -34,8 +34,8 @@ async function onSubmit(e) {
         return;
       });
     
-      setForm({ model: "", manufaturer: "", year: "", mileage:"",listPrice:"" });
-      navigate("/");
+      setForm({ model: "", manufacturer: "", year: "", mileage:"",listPrice:"" });
+      navigate("/carsList");
 
 }
 
