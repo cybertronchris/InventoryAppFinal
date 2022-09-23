@@ -8,11 +8,13 @@ import Homepage from "./Components/homepage";
 import CarsList from "./Components/carsList";
 import Edit from "./Components/edit";
 import CreateNew from "./Components/createNew";
- 
+import Navbar from "./Components/navbar";
+
+
 const App = () => {
  return (
    <div>
-     <Homepage/>
+     <Navbar/>
      <Routes>
        <Route exact path="/" element={<Homepage />} />
        <Route path="/carsList" element={<CarsList />} />
