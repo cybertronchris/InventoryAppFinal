@@ -13,15 +13,20 @@ import Navbar from "./Components/navbar";
 
 const App = () => {
  return (
-   <div>
+   <>
+    
+
      <Navbar/>
+     
      <Routes>
        <Route exact path="/" element={<Homepage />} />
        <Route path="/carsList" element={<CarsList />} />
        <Route path="/edit/:id" element={<Edit />} />
        <Route path="/createNew" element={<CreateNew />} />
+       
+       
      </Routes>
-   </div>
+   </>
  );
 };
  

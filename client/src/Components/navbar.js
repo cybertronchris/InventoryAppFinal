@@ -1,17 +1,73 @@
-//add imports
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import "./navbar.css";
 
-import React from "react";
-import "bootstrap/dist/css/bootstrap.css"; 
-import { Link } from "react-router-dom";
- 
+function Navbar() {
+  const [click, setClick] = useState(false);
 
-export default function Navbar() {
+  const handleClick = () => setClick(!click);
   return (
-    <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <Link class="navbar-brand" to="/">Inventory App Home</Link>
-      </div>
-    </div>
-    </nav>
-  )};
+    <>
+      <nav className="navbar">
+        <div className="nav-container">
+          <NavLink exact to="/" className="nav-logo">
+            Inventory App
+            <i className="fas fa-code"></i>
+          </NavLink>
+
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/carsList"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Inventory
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/createNew"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Add Item
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/contact"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Contact Us
+              </NavLink>
+            </li>
+          </ul>
+          <div className="nav-icon" onClick={handleClick}>
+            <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
+          </div>
+        </div>
+      </nav>
+    </>
+  );
+}
+
+export default Navbar;
