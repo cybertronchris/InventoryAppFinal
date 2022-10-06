@@ -52,12 +52,23 @@ function Navbar() {
             <li className="nav-item">
               <NavLink
                 exact
-                to="/contact"
+                to="/register"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                Contact Us
+                Register
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/login"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Login
               </NavLink>
             </li>
           </ul>

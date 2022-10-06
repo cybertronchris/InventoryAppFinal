@@ -9,6 +9,9 @@ import CarsList from "./Components/carsList";
 import Edit from "./Components/edit";
 import CreateNew from "./Components/createNew";
 import Navbar from "./Components/navbar";
+import Register from "./Components/register";
+import Login from "./Components/login";
+
 
 
 const App = () => {
@@ -23,6 +26,8 @@ const App = () => {
        <Route path="/carsList" element={<CarsList />} />
        <Route path="/edit/:id" element={<Edit />} />
        <Route path="/createNew" element={<CreateNew />} />
+       <Route exact path="/register" element={<Register />} />
+       <Route exact path="/login" element={<Login />} />
        
        
      </Routes>
