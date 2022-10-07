@@ -1,88 +1,28 @@
-const express = require("express");
- 
-// recordRoutes is an instance of the express router.
-// We use it to define our routes.
-// The router will be added as a middleware and will take control of requests starting with path /record.
-const carRoutes = express.Router();
- 
-// This will help us connect to the database
-const dbo = require("../db/conn");
- 
-// This help convert the id from string to ObjectId for the _id.
-const ObjectId = require("mongodb").ObjectId;
- 
- 
-// This section will help you get a list of all the records.
-carRoutes.route("/car").get(function (req, res) {
- let db_connect = dbo.getDb("cars");
- db_connect
-   .collection("cars")
-   .find({})
-   .toArray(function (err, result) {
-     if (err) throw err;
-     res.json(result);
-   });
-});
- 
-// This section will help you get a single record by id
-carRoutes.route("/car/:id").get(function (req, res) {
- let db_connect = dbo.getDb();
- let myquery = { _id: ObjectId(req.params.id) };
- db_connect
-   .collection("cars")
-   .findOne(myquery, function (err, result) {
-     if (err) throw err;
-     res.json(result);
-   });
-});
- 
-// This section will help you create a new record.
-carRoutes.route("/car/add").post(function (req, response) {
- let db_connect = dbo.getDb();
- let myobj = {
-   model: req.body.model,
-   manufacturer: req.body.manufacturer,
-   year: req.body.year,
-   mileage: req.body.mileage,
-   listPrice: req.body.listPrice,
- };
- db_connect.collection("cars").insertOne(myobj, function (err, res) {
-   if (err) throw err;
-   response.json(res);
- });
-});
- 
-// This section will help you update a record by id.
-carRoutes.route("/update/:id").post(function (req, response) {
- let db_connect = dbo.getDb();
- let myquery = { _id: ObjectId(req.params.id) };
- let newvalues = {
-   $set: {
-    model: req.body.model,
-    manufacturer: req.body.manufacturer,
-    year: req.body.year,
-    mileage: req.body.mileage,
-    listPrice: req.body.listPrice,
-   },
- };
- db_connect
-   .collection("cars")
-   .updateOne(myquery, newvalues, function (err, res) {
-     if (err) throw err;
-     console.log("1 document updated");
-     response.json(res);
-   });
-});
- 
-// This section will help you delete a record
-carRoutes.route("/:id").delete((req, response) => {
- let db_connect = dbo.getDb();
- let myquery = { _id: ObjectId(req.params.id) };
- db_connect.collection("cars").deleteOne(myquery, function (err, obj) {
-   if (err) throw err;
-   console.log("1 document deleted");
-   response.json(obj);
- });
-});
- 
-module.exports = carRoutes;
+module.exports = app => {
+  const cars = require("../controllers/cars.controller.js");
+
+  var router = require("express").Router();
+
+  // Create a new Tutorial
+router.post("/", cars.create);
+
+  // Retrieve all cars
+  router.get("/", cars.findAll);
+
+  // Retrieve all published cars
+  router.get("/published", cars.findAllPublished);
+
+  // Retrieve a single Tutorial with id
+  router.get("/:id", cars.findOne);
+
+  // Update a Tutorial with id
+  router.put("/:id", cars.update);
+
+  // Delete a Tutorial with id
+  router.delete("/:id", cars.delete);
+
+  // Create a new Tutorial
+  router.delete("/", cars.deleteAll);
+
+  app.use('/api/cars', router);
+};
