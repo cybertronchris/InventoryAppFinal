@@ -1,5 +1,7 @@
 module.exports = mongoose => {
-    var schema = mongoose.schema(
+  const Cars = mongoose.model(
+    "cars",
+    mongoose.Schema(
          {
            model: String,  
            make: String,
@@ -8,13 +10,6 @@ module.exports = mongoose => {
            listPrice: String  
          },
          { timestamps: true }
-       );
-       schema.method("toJSON", function(){
-         const {_v, _id, ...object} = this.toObject();
-         object.id = _id;
-         return object;
-       });
-       const Cars = mongoose.model("cars", schema);
-       return Cars;
-   
-   };
+       ));
+      return Cars
+        };
