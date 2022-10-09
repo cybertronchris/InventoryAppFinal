@@ -60,7 +60,7 @@ render ()  {
        <Route exact path="/" element={<Homepage />} />
        <Route path="/carsList" element={<CarsList />} />
        <Route path="/edit/:id" element={<Edit />} />
-       <Route path="/createNew" component={<CreateNew />} />
+       <Route path="/createNew" element={<CreateNew />} />
        <Route exact path="/register" element={<Register />} />
        <Route exact path="/login" element={<Login />} />
        

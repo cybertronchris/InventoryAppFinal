@@ -22,7 +22,7 @@ async function onSubmit(e) {
     e.preventDefault();
 
     const newInventory = { ...form };
-    await fetch("http://localhost:5000/car/add", {
+    await fetch("http://localhost:5000/cars/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

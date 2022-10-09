@@ -34,7 +34,7 @@ app.use((req, res, next) => {
 });
 
 require('./routes/auth.routes') (app)
-require("./routes/car")(app);
+require("./routes/cars.routes")(app);
 require('./routes/user.routes')(app);
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
@@ -43,7 +43,7 @@ app.listen(port, () => {
 
 db.mongoose
   .connect(
-  `mongodb+srv://dbuser:Password1!@cluster0.8rtay2v.mongodb.net/?retryWrites=true&w=majority`,
+`mongodb+srv://dbuser:Password1!@cluster0.zuxhij4.mongodb.net/?retryWrites=true&w=majority`,
 {    useNewUrlParser: true,
       useUnifiedTopology: true
 })

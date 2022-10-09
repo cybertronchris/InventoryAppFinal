@@ -1,7 +1,9 @@
-module.exports = mongoose => {
+const mongoose = require("mongoose");
+
+
   const Cars = mongoose.model(
     "cars",
-    mongoose.Schema(
+   new mongoose.Schema(
          {
            model: String,  
            make: String,
@@ -11,5 +13,5 @@ module.exports = mongoose => {
          },
          { timestamps: true }
        ));
-      return Cars
-        };
+      
+       module.exports = Cars;     

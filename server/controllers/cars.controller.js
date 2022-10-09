@@ -1,5 +1,5 @@
 const db = require("../models");
-const Car = db.cars;
+const Cars = db.cars;
 
 exports.create = (req, res) => {
     // Validate request
@@ -9,7 +9,7 @@ exports.create = (req, res) => {
     }
   
     // Create 
-    const car = new Car({
+    const cars = new Cars({
         model: req.body.model,
         make: req.body.make,
         year: req.body.year,
@@ -18,8 +18,8 @@ exports.create = (req, res) => {
     });
   
     // Save in the database
-    car
-      .save(car)
+    cars
+      .save(cars)
       .then(data => {
         res.send(data);
       })
@@ -35,7 +35,7 @@ exports.create = (req, res) => {
     const model = req.query.model;
     var condition = model ? { model: { $regex: new RegExp(model), $options: "i" } } : {};
   
-    Car.find(condition)
+    Cars.find(condition)
       .then(data => {
         res.send(data);
       })
@@ -49,7 +49,7 @@ exports.create = (req, res) => {
   exports.findOne = (req, res) => {
     const id = req.params.id;
   
-    Car.findById(id)
+    Cars.findById(id)
       .then(data => {
         if (!data)
           res.status(404).send({ message: "Not found with id " + id });
@@ -71,7 +71,7 @@ exports.create = (req, res) => {
   
     const id = req.params.id;
   
-    Car.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    Cars.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
       .then(data => {
         if (!data) {
           res.status(404).send({
@@ -88,7 +88,7 @@ exports.create = (req, res) => {
   exports.delete = (req, res) => {
     const id = req.params.id;
   
-    Car.findByIdAndRemove(id)
+    Cars.findByIdAndRemove(id)
       .then(data => {
         if (!data) {
           res.status(404).send({
@@ -107,7 +107,7 @@ exports.create = (req, res) => {
       });
   };
   exports.deleteAll = (req, res) => {
-    Car.deleteMany({})
+    Cars.deleteMany({})
       .then(data => {
         res.send({
           message: `${data.deletedCount} Cars were deleted successfully!`
@@ -116,7 +116,7 @@ exports.create = (req, res) => {
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while removing all tutorials."
+            err.message || "Some error occurred while removing all."
         });
       });
   };
