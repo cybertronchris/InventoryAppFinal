@@ -88,13 +88,13 @@ useEffect(() =>{
               />
             </div>
             <div className="form-group">
-              <label htmlFor="manufacturer">MFG: </label>
+              <label htmlFor="make">Make: </label>
               <input
                 type="text"
                 className="form-control"
-                id="manufacturer"
-                value={form.maufacturer}
-                onChange={(e) => updateForm({ manufacturer: e.target.value })}
+                id="make"
+                value={form.make}
+                onChange={(e) => updateForm({ make: e.target.value })}
               />
             </div>
             <div className="form-group">

@@ -9,7 +9,8 @@ const mongoose = require("mongoose");
            make: String,
            year: String,
            mileage: String,
-           listPrice: String  
+           listPrice: String,
+          
          },
          { timestamps: true }
        ));

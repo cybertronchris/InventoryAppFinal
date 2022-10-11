@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.css";
 const Car = (props) => (
  <tr>
    <td>{props.car.model}</td>
-   <td>{props.car.manufacturer}</td>
+   <td>{props.car.make}</td>
    <td>{props.car.year}</td>
    <td>{props.car.mileage}</td>
    <td>{props.car.listPrice}</td>

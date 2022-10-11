@@ -34,7 +34,7 @@ async function onSubmit(e) {
         return;
       });
     
-      setForm({ model: "", manufacturer: "", year: "", mileage:"",listPrice:"" });
+      setForm({ model: "", make: "", year: "", mileage:"",listPrice:"" });
       navigate("/carsList");
 
 }
@@ -48,8 +48,8 @@ async function onSubmit(e) {
                     <input type="text" className="form-control" id="model" value={form.model} onChange={(e) => updateForm({ model: e.target.value})}/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="manufacturer">MFR</label>
-                    <input type="text" className="form-control" id="manufacturer" value={form.manufacturer} onChange={(e) => updateForm({ manufacturer: e.target.value})}/>
+                    <label htmlFor="make">Make</label>
+                    <input type="text" className="form-control" id="make" value={form.make} onChange={(e) => updateForm({ make: e.target.value})}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="year">Year</label>
