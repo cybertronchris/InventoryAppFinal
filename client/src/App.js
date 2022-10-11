@@ -7,13 +7,13 @@ import "./App.css";
 
 import AuthService from "./services/auth.service"
 // We import all the components we need in our app
-import Homepage from "./components/homepage";
-import CarsList from "./components/carsList";
-import Edit from "./components/edit";
-import CreateNew from "./components/createNew";
-import Navbar from "./components/navbar";
-import Register from "./components/register";
-import Login from "./components/login";
+import Homepage from "./Components/homepage";
+import CarsList from "./Components/carsList";
+import Edit from "./Components/edit";
+import CreateNew from "./Components/createNew";
+import Navbar from "./Components/navbar";
+import Register from "./Components/register";
+import Login from "./Components/login";
 
 
 class App extends Component {
