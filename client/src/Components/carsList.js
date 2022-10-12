@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 
+
+
+
+  
 
 const Car = (props) => (
  <tr>
@@ -14,7 +18,7 @@ const Car = (props) => (
      <Link className="btn btn-link" to={`/edit/${props.car._id}`}>Edit</Link> |
      <button className="btn btn-link"
        onClick={() => {
-         props.deleteCar(props.car._id);
+         props.deleteCars(props.car._id);
        }}
      >
        Delete
@@ -23,13 +27,13 @@ const Car = (props) => (
  </tr>
 );
  
-export default function CarList() {
+export default function CarsList() {
  const [cars, setCars] = useState([]);
  
  // This method fetches the records from the database.
  useEffect(() => {
    async function getCars() {
-     const response = await fetch(`http://localhost:5000/car/`);
+     const response = await fetch(`http://localhost:5000/api/test/cars/`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -47,8 +51,8 @@ export default function CarList() {
  }, [cars.length]);
  
  // This method will delete a record
- async function deleteCar(id) {
-   await fetch(`http://localhost:5000/${id}`, {
+ async function deleteCars(id) {
+   await fetch(`http://localhost:8000/api/test/cars${id}`, {
      method: "DELETE"
    });
  
@@ -62,13 +66,13 @@ export default function CarList() {
      return (
        <Car
          car={car}
-         deleteCar={() => deleteCar(car._id)}
+         deleteCar={() => deleteCars(car._id)}
          key={car._id}
        />
      );
    });
  }
- 
+
  // This following section will display the table with the records of individuals.
  return (
    <div className="container">
@@ -80,7 +84,7 @@ export default function CarList() {
        <thead>
          <tr>
            <th>Model</th>
-           <th>Manufacturer</th>
+           <th>Make</th>
            <th>Year</th>
            <th>Mileage</th>
            <th>List Price</th>

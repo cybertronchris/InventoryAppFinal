@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./navbar.css";
 
-function Navbar() {
+
+
+
+function Navbar(){
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
+//adding auth user name to navbar
+ 
+  
   return (
     <>
       <nav className="navbar">
@@ -14,8 +20,9 @@ function Navbar() {
             Inventory App
             <i className="fas fa-code"></i>
           </NavLink>
-
+          
           <ul className={click ? "nav-menu active" : "nav-menu"}>
+      
             <li className="nav-item">
               <NavLink
                 exact
@@ -78,7 +85,7 @@ function Navbar() {
         </div>
       </nav>
     </>
-  );
+            );
 }
 
 export default Navbar;

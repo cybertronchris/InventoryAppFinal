@@ -3,23 +3,23 @@ module.exports = app => {
 
   module.exports = function(app) {
   // Create a new 
-   app.post("/cars", cars.create);
+   app.post("/api/test/cars", controller.admin);
 
   // Retrieve all cars
-  app.get("/cars", cars.findAll);
+  app.get("/api/test/cars", controller.allAccess);
 
 
 
 
-  app.get("/cars:id", cars.findOne);
+  app.get("/api/test/cars:id", controller.allAccess);
 
   // Update  with id
-  app.put("/cars:id", cars.update);
+  app.put("/api/test/cars:id", controller.admin);
 
   // Delete  with id
-  app.delete("/cars:id", cars.delete);
+  app.delete("/api/test/cars:id", controller.admin);
 
   // Create a new Tutorial
-  app.delete("/cars", cars.deleteAll);
+  app.delete("/api/test/cars", controller.admin);
 
 }}

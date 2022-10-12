@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
   const Cars = mongoose.model(
     "cars",
-   new mongoose.Schema(
+   cars.Schema(
          {
            model: String,  
            make: String,
