@@ -7,7 +7,7 @@
 
   module.exports = function(app) {
   // Create a new 
-   app.post("/api/test/cars")
+   app.post("/api/test/cars/add")
 
   // Retrieve all cars
   app.get("/api/test/cars")
@@ -24,7 +24,8 @@
   // Delete  with id
   app.delete("/api/test/cars:id")
 
-  // Create a new Tutorial
+
+  //Delete all
   app.delete("/api/test/cars")
 
 }

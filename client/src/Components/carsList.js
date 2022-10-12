@@ -33,7 +33,7 @@ export default function CarsList() {
  // This method fetches the records from the database.
  useEffect(() => {
    async function getCars() {
-     const response = await fetch(`http://localhost:3000/cars/`);
+     const response = await fetch(`http://localhost:5000/api/test/cars/`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -52,7 +52,7 @@ export default function CarsList() {
  
  // This method will delete a record
  async function deleteCars(id) {
-   await fetch(`http://localhost:3000/cars${id}`, {
+   await fetch(`http://localhost:5000/api/test/cars${id}`, {
      method: "DELETE"
    });
  
