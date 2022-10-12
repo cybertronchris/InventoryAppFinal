@@ -1,25 +1,30 @@
-module.exports = app => {
-  const controller = require("../controllers/cars.controller");
+
+
+
+
+
+
 
   module.exports = function(app) {
   // Create a new 
-   app.post("/api/test/cars", controller.admin);
+   app.post("/api/test/cars")
 
   // Retrieve all cars
-  app.get("/api/test/cars", controller.allAccess);
+  app.get("/api/test/cars")
 
 
 
 
-  app.get("/api/test/cars:id", controller.allAccess);
+  app.get("/api/test/cars:id")
 
   // Update  with id
-  app.put("/api/test/cars:id", controller.admin);
+  app.put("/api/test/cars:id")
+ 
 
   // Delete  with id
-  app.delete("/api/test/cars:id", controller.admin);
+  app.delete("/api/test/cars:id")
 
   // Create a new Tutorial
-  app.delete("/api/test/cars", controller.admin);
+  app.delete("/api/test/cars")
 
-}}
+}

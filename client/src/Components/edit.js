@@ -20,7 +20,7 @@ const [form, setForm] = useState({
 useEffect(() =>{
     async function fetchData() {
         const id = params.id.toString();
-        const response = await fetch(`http://localhost:5000/api/test/cars/record/${params.id.toString()}`);
+        const response = await fetch(`http://localhost:3000/cars/record/${params.id.toString()}`);
  
         if (!response.ok) {
           const message = `An error has occurred: ${response.statusText}`;
@@ -62,7 +62,7 @@ useEffect(() =>{
         };
       //changed to plural
         // This will send a post request to update the data in the database.
-        await fetch(`http://localhost:5000/cars/update/${params.id}`, {
+        await fetch(`http://localhost:3000/cars/update/${params.id}`, {
           method: "POST",
           body: JSON.stringify(editedCar),
           headers: {
