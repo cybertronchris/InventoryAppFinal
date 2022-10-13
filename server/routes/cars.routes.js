@@ -1,3 +1,5 @@
+const carRoutes = express.Router();
+app.use('/cars', cars.routes);
 
 
 
@@ -5,9 +7,31 @@
 
 
 
-  module.exports = function(app) {
+
+   
+    carRoutes.routes('/').get(function(req, res){
+      cars.find(function(err, cars){
+        if (err){
+          console.log(err);
+        }else{
+          res.json(cars);
+        }
+      })
+    })
   // Create a new 
-   app.post("/api/test/cars/add")
+
+
+  carRoutes.routes("/add").post(function(req, res){
+    let car = new Car(req.body);
+    car.save()
+      .then(todo => {
+        res.status(200).json({'cars': 'Cars added successfully'});
+      })
+      .catch(err => {
+        res.status(400).send('adding new car failed');
+      });
+   });
+   
 
   // Retrieve all cars
   app.get("/api/test/cars")
@@ -15,10 +39,35 @@
 
 
 
-  app.get("/api/test/cars:id")
+  app.get("/:id")
+        (function(req, res){
+    let id = req.params.id;
+    cars.findById(id, function(err, todo){
+      res.json(cars);
+    })
+  })
 
   // Update  with id
-  app.put("/api/test/cars:id")
+  carRoutes.routes("/update:id").post(function(req, res){
+    cars.findById(req.params.id, function(err, car){
+      if (!car)
+        res.status(404).send("NOT FOUND!");
+        else
+       car.model = req.body.car.model;
+       car.make = req.body.car.make;
+       car.year = req.body.car.year;
+       car.mileage = req.body.car.mileage;
+       car.priceList = req.body.car.priceList;
+
+       car.save().then(car=> {
+        res.jsno("UPDATED");
+       })
+       .catch(err=> {
+        res.status(400).send("update not possible");
+       });
+
+    })
+  });
  
 
   // Delete  with id
@@ -28,4 +77,3 @@
   //Delete all
   app.delete("/api/test/cars")
 
-}
