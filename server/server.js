@@ -35,7 +35,6 @@ app.use((req, res, next) => {
 
 require('./routes/auth.routes') (app)
 //
-require("./routes/cars.routes")(app);
 
 require('./routes/user.routes')(app);
 const port = process.env.PORT || 5000;

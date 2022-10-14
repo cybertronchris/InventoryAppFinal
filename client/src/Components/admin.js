@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import Users from './users';
-import Register from './register';
+
+
 
 
 const Admin = () => {
@@ -8,7 +8,7 @@ const Admin = () => {
         <section>
             <h1>Admin Page</h1>
             <br />
-            <Users />
+            
             <br />
             <div className='flexGrow'>
                 <Link to = '/'>Home</Link>

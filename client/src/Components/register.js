@@ -6,6 +6,8 @@ import { isEmail } from "validator";
 
 import AuthService from "../services/auth.service";
 
+
+
 const required = value => {
   if (!value) {
     return (
