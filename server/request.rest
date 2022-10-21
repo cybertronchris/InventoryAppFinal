@@ -1,0 +1,11 @@
+GET http://localhost:5000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2NjQ3MzA0MjJ9.t9vfDRSF5hgKghItNUY3fmawPKCCzVBkP0pRRvqUePU
+
+###
+
+POST http://localhost:5000/login 
+content-type: application/json
+
+{
+    "username" : "admin"
+}
