@@ -12,7 +12,7 @@ module.exports = function(app) {
   });
 
 
-  app.use('/cars', cars.routes);
+
 
 
 
