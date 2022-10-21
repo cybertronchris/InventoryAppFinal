@@ -35,7 +35,7 @@ async function onSubmit(e) {
       });
     
       setForm({ model: "", make: "", year: "", mileage:"",listPrice:"" });
-      navigate("/carsList");
+      navigate("/carList");
 
 }
 
