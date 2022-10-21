@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-
+import {NavLink} from "react-router-dom";
 
 
 import AuthService from "../services/auth.service";
@@ -150,6 +150,9 @@ class Login extends Component {
                 this.checkBtn = c;
               }}
             />
+            <div>
+              <h6>Need an account? <NavLink to="/register">Register here</NavLink> </h6>
+            </div>
           </Form>
         </div>
       </div>
