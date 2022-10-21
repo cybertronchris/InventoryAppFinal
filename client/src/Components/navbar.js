@@ -48,17 +48,6 @@ function Navbar(){
             <li className="nav-item">
               <NavLink
                 exact
-                to="/createNew"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                Add Item
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                exact
                 to="/register"
                 activeClassName="active"
                 className="nav-links"
