@@ -7,7 +7,7 @@ import { useParams, useNavigate } from "react-router";
 export default function Edit(){
 const [form, setForm] = useState({
     model: "",
-    manufacturer: "",
+    make: "",
     year: "",
     mileage: "",
     listPrice: "",
@@ -20,7 +20,7 @@ const [form, setForm] = useState({
 useEffect(() =>{
     async function fetchData() {
         const id = params.id.toString();
-        const response = await fetch(`http://localhost:5000/api/test/cars/record/${params.id.toString()}`);
+        const response = await fetch(`https://my-json-server.typicode.com/rsturn29/cars/cars${params.id.toString()}`);
  
         if (!response.ok) {
           const message = `An error has occurred: ${response.statusText}`;
@@ -28,14 +28,14 @@ useEffect(() =>{
           return;
         }
     
-        const record = await response.json();
-        if (!record) {
-          window.alert(`Record with id ${id} not found`);
+        const model = await response.json();
+        if (!model) {
+          window.alert(`Car with model ${model} not found`);
           navigate("/");
           return;
         }
     
-        setForm(record);
+        setForm(model);
       }
     
       fetchData();

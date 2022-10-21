@@ -53,7 +53,7 @@ export default function  Homepage(){
     <div class="col-lg-8 col-xl-8 py-8">
       <hr class="hr-short bg-500 mb-6 opacity-1" />
       <p class="font-sans-serif lead text-dark">Discover all the possibilities you can create with one click</p>
-      <NavLink to="/carsList">
+      <NavLink to="/login">
       <h4 class="btn btn-danger mt-3">View Inventory</h4>
       </NavLink>
     </div>

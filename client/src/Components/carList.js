@@ -1,11 +1,7 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 
-
-
-
-  
 
 const Car = (props) => (
  <tr>
@@ -18,7 +14,7 @@ const Car = (props) => (
      <Link className="btn btn-link" to={`/edit/${props.car._id}`}>Edit</Link> |
      <button className="btn btn-link"
        onClick={() => {
-         props.deleteCars(props.car._id);
+         props.deleteCar(props.car._id);
        }}
      >
        Delete
@@ -27,13 +23,13 @@ const Car = (props) => (
  </tr>
 );
  
-export default function CarsList() {
+export default function CarList() {
  const [cars, setCars] = useState([]);
  
  // This method fetches the records from the database.
  useEffect(() => {
    async function getCars() {
-     const response = await fetch(`http://localhost:5000/`);
+     const response = await fetch(`https://my-json-server.typicode.com/rsturn29/cars/cars`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -51,8 +47,8 @@ export default function CarsList() {
  }, [cars.length]);
  
  // This method will delete a record
- async function deleteCars(id) {
-   await fetch(`http://localhost:5000/${id}`, {
+ async function deleteCar(id) {
+   await fetch(`https://my-json-server.typicode.com/rsturn29/cars/cars${id}`, {
      method: "DELETE"
    });
  
@@ -66,13 +62,13 @@ export default function CarsList() {
      return (
        <Car
          car={car}
-         deleteCar={() => deleteCars(car._id)}
+         deleteCar={() => deleteCar(car._id)}
          key={car._id}
        />
      );
    });
  }
-
+ 
  // This following section will display the table with the records of individuals.
  return (
    <div className="container">

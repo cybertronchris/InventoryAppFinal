@@ -7,15 +7,15 @@ import "./App.css";
 
 import AuthService from "./services/auth.service"
 // We import all the components we need in our app
-import Homepage from "./Components/homepage";
-import CarsList from "./Components/carsList";
-import Edit from "./Components/edit";
-import CreateNew from "./Components/createNew";
-import Navbar from "./Components/navbar";
-import Register from "./Components/register";
-import Login from "./Components/login";
-import Admin from "./Components/admin";
+import Homepage from "./components/homepage";
 
+import Edit from "./components/edit";
+import CreateNew from "./components/createNew";
+import Navbar from "./components/navbar";
+import Register from "./components/register";
+import Login from "./components/login";
+import Admin from "./components/admin";
+import CarList from "./components/carList"
 
 class App extends Component {
   constructor(props) {
@@ -59,14 +59,14 @@ render ()  {
      <Navbar/>
      
      <Routes>
-       <Route exact path="/" element={<Homepage />} />
-       <Route path="/carsList" element={<CarsList />} />
+       <Route path="/" element={<Homepage />} />
+   
        <Route path="/edit/:id" element={<Edit />} />
        <Route path="/createNew" element={<CreateNew />} />
-       <Route exact path="/register" element={<Register />} />
-       <Route exact path="/login" element={<Login />} />
-       <Route exact path="/admin" element={<Admin />} />
-      
+       <Route path="/register" element={<Register />} />
+       <Route path="/login" element={<Login />} />
+       <Route path="/admin" element={<Admin />} />
+       <Route path="/carList" element={<CarList />} />
        
      </Routes>
    </>

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 export default function Create() {
     const [form, setForm] = useState({
       model: "",
-      manufacturer: "",
+      make: "",
       year: "",
       mileage: "",
       listPrice: "",
@@ -22,7 +22,7 @@ async function onSubmit(e) {
     e.preventDefault();
 
     const newInventory = { ...form };
-    await fetch("http://localhost:5000/", {
+    await fetch("https://my-json-server.typicode.com/rsturn29/cars/cars", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
