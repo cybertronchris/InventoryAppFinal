@@ -7,7 +7,7 @@ import { useParams, useNavigate } from "react-router";
 export default function Edit(){
 const [form, setForm] = useState({
     model: "",
-    make: "",
+    manufacturer: "",
     year: "",
     mileage: "",
     listPrice: "",
@@ -20,7 +20,7 @@ const [form, setForm] = useState({
 useEffect(() =>{
     async function fetchData() {
         const id = params.id.toString();
-        const response = await fetch(`https://my-json-server.typicode.com/rsturn29/cars/cars${params.id.toString()}`);
+        const response = await fetch(`${params.id.toString()}`);
  
         if (!response.ok) {
           const message = `An error has occurred: ${response.statusText}`;
@@ -28,14 +28,14 @@ useEffect(() =>{
           return;
         }
     
-        const model = await response.json();
-        if (!model) {
-          window.alert(`Car with model ${model} not found`);
+        const record = await response.json();
+        if (!record) {
+          window.alert(`Car with id ${id} not found`);
           navigate("/");
           return;
         }
     
-        setForm(model);
+        setForm(record);
       }
     
       fetchData();
@@ -55,14 +55,14 @@ useEffect(() =>{
         e.preventDefault();
         const editedCar = {
           model: form.model,
-          manufacturer: form.manufacturer,
+          make: form.make,
           year: form.year,
           mileage: form.mileage,
           listPrice: form.listPrice,
         };
       //changed to plural
         // This will send a post request to update the data in the database.
-        await fetch(`http://localhost:5000/${params.id}`, {
+        await fetch(`https://my-json-server.typicode.com/rsturn29/cars/cars${params.id}`, {
           method: "POST",
           body: JSON.stringify(editedCar),
           headers: {
